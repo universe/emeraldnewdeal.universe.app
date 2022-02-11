@@ -76,5 +76,12 @@
     res.status === 'success' && localStorage.removeItem('__form__');
     const data = JSON.parse(localStorage.getItem('__form__') || '{}');
     Array.from(form.elements).forEach(e => e.getAttribute('type') !== 'checkbox' && (e.value = (data[e.name] || e.value)));
+
+    if (res.status === 'success') {
+      for (const el of Array.from(document.querySelectorAll('#email-form input[type=submit]'))) {
+        el.value = 'Subscribed';
+        el.setAttribute('style', 'background: var(--green);')
+      }
+    }
   </script>
 </form>
