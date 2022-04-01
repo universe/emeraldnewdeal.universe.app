@@ -64,6 +64,10 @@
   margin: 0;
 }
 
+.endorsements--hidden {
+  display: none !important;
+}
+
 .endorsements:empty, .endorsements:not(:has(.endorsement)), .endorsements--hidden {
   display: none !important;
 }
