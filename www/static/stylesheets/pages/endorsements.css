@@ -37,6 +37,7 @@
   width: 100%;
   max-width: 66%;
   text-align: center;
+  overflow: hidden;
 }
 
 .endorsements__header-image {
@@ -58,8 +59,13 @@
   width: 100%;
   text-align: left;
   margin-bottom: 2.4rem;
-  font-size: 3rem;
+  font-size: 0rem;
+  color: transparent;
   margin: 0;
+}
+
+.endorsements:empty, .endorsements:not(:has(.endorsement)), .endorsements--hidden {
+  display: none !important;
 }
 
 .endorsements::before {

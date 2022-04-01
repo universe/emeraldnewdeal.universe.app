@@ -6,6 +6,7 @@
     "port": 1778,
     "database": {
       "type": "firebase",
+      "path": "/Users/adammiller/Projects/multiverse/destinywells.universe.app/data",
       "scope": "websites/default",
       "projectId": "p4ecebf64efe948f6bbfe059ad17b2",
       "username": "00000000-0000-0000-0000-000000000000@universe.app",
