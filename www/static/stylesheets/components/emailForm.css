@@ -12,7 +12,20 @@
 .email-form .email-form__label {
   display: block;
   font-weight: 600;
-  margin-bottom: 1.2rem;
+  margin-bottom: 2.5rem;
+  font-size: 2.5rem;
+  padding-bottom: 1.5rem;
+  position: relative;
+}
+
+.email-form .email-form__label::after {
+  content: "";
+  position: absolute;
+  height: 8px;
+  left: 0;
+  bottom: -5px;
+  background: var(--yellow);
+  width: 33.333%;
 }
 
 .email-form .email-form__section {

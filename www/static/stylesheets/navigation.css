@@ -1,13 +1,14 @@
 .nav {
   max-width: var(--site-width);
-  height: 12.8rem;
+  height: 16.8rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   align-items: center;
   margin: 0 auto;
-  background-color: var(--primary);
+  background-color: transparent;
   position: relative;
+  z-index: 999;
 }
 
 .nav::before {
@@ -20,6 +21,7 @@
   width: 100vw;
   background-color: var(--primary);
   z-index: -1;
+  border-bottom: 2.6rem solid var(--yellow);
 }
 
 .nav__menu-button {
@@ -116,7 +118,6 @@
 }
 
 .nav__donate {
-
 }
 
 .nav__get-involved .button {
@@ -133,7 +134,9 @@
 }
 
 .logo__image {
-  height: 6.4rem;
+  height: 19.2rem;
+  top: 3.2rem;
+  position: relative;
 }
 
 .nav__social {
@@ -208,6 +211,7 @@
 
   .nav::before {
     width: 100%;
+    border-bottom-width: 8px;
   }
 
   .nav__links {

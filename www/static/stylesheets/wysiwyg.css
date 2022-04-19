@@ -20,49 +20,49 @@
 }
 
 .wysiwyg p {
-  font-size: 2rem;
+  font-size: 2.5rem;
   line-height: 1.2;
   font-weight: 400;
   margin-bottom: 1.2em;
 }
 
 .wysiwyg h1 {
-  font-size: 5.8rem;
+  font-size: 6.5rem;
   line-height: 1.2;
   font-weight: 800;
   margin-bottom: 0.8rem;
 }
 
 .wysiwyg h2 {
-  font-size: 4.2rem;
+  font-size: 6rem;
   line-height: 1.2;
   font-weight: 800;
   margin-bottom: 0.8rem;
 }
 
 .wysiwyg h3 {
-  font-size: 3.8rem;
+  font-size: 5.5rem;
   line-height: 1.2;
   font-weight: 800;
   margin-bottom: 0.8rem;
 }
 
 .wysiwyg h4 {
-  font-size: 2.4rem;
+  font-size: 4.5rem;
   line-height: 1.2;
   font-weight: 800;
   margin-bottom: 0.8rem;
 }
 
 .wysiwyg h5 {
-  font-size: 1.3rem;
+  font-size: 3.5rem;
   line-height: 1.2;
   font-weight: 800;
   margin-bottom: 0.8rem;
 }
 
 .wysiwyg h6 {
-  font-size: 1.1rem;
+  font-size: 2.5rem;
   line-height: 1.2;
   font-weight: 800;
   text-transform: uppercase;
@@ -82,6 +82,14 @@
   transform: translateX(-50vw);
   border: none;
   margin: 2.4rem 0;
+}
+
+.wysiwyg ul, .wysiwyg ol {
+  font-size: 2.5rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 2.5rem;
+  padding-left: 2.5rem;
 }
 
 .wysiwyg blockquote {
@@ -204,4 +212,26 @@
 .quill-button__format, .quill-button__href-input, .quill-button__text-input,
 .quill-image__format, .quill-image__caption-edit, .quill-image input {
   display: none !important;
+}
+
+@media (max-width: 600px) {
+  .wysiwyg h1 {
+    font-size: 4.5rem;
+  }
+  .wysiwyg h2 {
+    font-size: 4rem;
+  }
+  .wysiwyg h3 {
+    font-size: 3.5rem;
+  }
+  .wysiwyg h4 {
+    font-size: 3.2rem;
+  }
+  .wysiwyg h5 {
+    font-size: 2.8rem;
+  }
+  .wysiwyg ul, .wysiwyg ol {
+    display: flex;
+    flex-flow: column;
+  }
 }

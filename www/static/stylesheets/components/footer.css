@@ -77,7 +77,11 @@
   grid-column: 3;
 }
 
-.footer__donate a { display: block; }
+.footer__donate a {
+  display: block;
+  background: var(--yellow);
+  color: var(--primary) !important;
+}o
 
 .footer__social {
   grid-column: 3;
@@ -91,8 +95,6 @@
   grid-row-end: 3;
   text-align: left;
   color: white;
-  border-left: 4px solid var(--primary);
-  padding-left: 2.4rem;
 }
 
 .footer__social ul {
@@ -125,6 +127,11 @@
 .footer .email-form input[type=submit] {
   width: 100%;
   margin: 0 0 1.2rem !important;
+}
+
+.footer .email-form input[type=submit] {
+  background: var(--yellow);
+  color: var(--primary);
 }
 
 .footer__social .nav__social {

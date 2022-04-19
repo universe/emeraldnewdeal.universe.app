@@ -1,14 +1,14 @@
 {
   "name": "@universe/neutrino",
   "vapid": {
-    "name": "Destiny Wells",
-    "domain": "wellsforindiana.com",
+    "name": "Emerald New Deal",
+    "domain": "emeraldnewdeal.universe.app",
     "port": 1778,
     "database": {
       "type": "firebase",
-      "path": "/Users/adammiller/Projects/multiverse/destinywells.universe.app/data",
+      "path": "/Users/adammiller/Projects/multiverse/emeraldnewdeal.universe.app/data",
       "scope": "websites/default",
-      "projectId": "p4ecebf64efe948f6bbfe059ad17b2",
+      "projectId": "pee2fb49369b146d5a7a5be7e9636e",
       "username": "00000000-0000-0000-0000-000000000000@universe.app",
       "password": "00000000-0000-0000-0000-000000000000"
     }
@@ -21,6 +21,6 @@
     "stop": "forever stop $npm_package_vapid_url ; fuser ${npm_package_vapid_port}/tcp -k ;"
   },
   "dependencies": {
-    "@universe/vapid": "^0.1.7"
+    "@universe/vapid": "^0.4.2"
   }
 }

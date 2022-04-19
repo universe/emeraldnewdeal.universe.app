@@ -35,10 +35,12 @@ html {
 }
 
 body {
-  --matte: #E5E5E5;
-  --primary: #010163;
-  --secondary: #265EC5;
-  --cta: #D2201D;
+  --matte: #FFFFFe;
+  --primary: #14291d;
+  --secondary: #46634c;
+  --ternary: #8CA18F;
+
+  --cta: #1A6D39;
 
   --gray: #8298AB;
   --light-gray: #E1E9F0;
@@ -56,7 +58,7 @@ body {
   --dark-red: #420b17;
   --green: #059456;
   --light-yellow: #e9c195;
-  --yellow: #FAA040;
+  --yellow: #Feee3a;
   --light-gray: rgba(0,0,0,.1);
   --gray: rgba(0,0,0,.55);
   --purple: rgb(55,58,94);
@@ -68,7 +70,7 @@ body {
   --elevation-6: 0 0 0 1px rgba(0, 0, 0, 0.01), 0 6px 9px rgba(0, 0, 0, 0.1);
   --elevation-12: 0 0 0 1px rgba(0, 0, 0, 0.01), 0 12px 18px 1px rgba(0, 0, 0, 0.1);
 
-  --site-width: 1280px;
+  --site-width: 1440px;
 
   font-size: 2rem;
   margin: 0 1.4rem;
@@ -133,6 +135,7 @@ form input, form textarea {
   font-size: inherit;
   border: 1px solid var(--gray);
   border-radius: 2px;
+  font-size: 2.5rem;
 }
 
 form input:not([type=submit]), form textarea {

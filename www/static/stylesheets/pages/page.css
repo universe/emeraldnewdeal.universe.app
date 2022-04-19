@@ -4,8 +4,8 @@
   flex-flow: row-reverse;
   justify-content: space-between;
   align-items: center;
-  --section-color: #265EC5;
-  color: white;
+  --section-color: var(--ternary);
+  color: var(--primary);
   justify-content: center;
   padding: 4.2rem;
 }
@@ -14,7 +14,7 @@
   padding: 0 0.8rem 0 0;
   margin: 0;
   line-height: 1;
-  color: white;
+  color: var(--primary);
   margin-bottom: 0 !important;
 }
 
@@ -22,7 +22,7 @@
   margin-bottom: 5.2rem;
   padding: 0 0.8rem 0.8rem;
   line-height: 1;
-  color: white;
+  color: var(--primary);
   font-weight: 400 !important;
   text-transform: none;
   font-size: 2.8rem !important;

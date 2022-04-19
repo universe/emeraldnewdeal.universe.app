@@ -91,8 +91,13 @@
         {{#collection news sortable=true as |article|}}
           <li class="news-article">
             <a href="{{@record.permalink}}">
-              <time class="news-article__date">{{date @record.createdAt}}</time>
+              <time class="news-article__date">
+                <span>{{date @record.createdAt month="short"}}</span>
+                <span>{{date @record.createdAt day="numeric"}}</span>
+                <span>{{date @record.createdAt year="numeric"}}</span>
+              </time>
               <h3 class="news-article__name">{{article.title}}</h3>
+              <button>Read More</button>
             </a>
           </li>
         {{/collection}}
