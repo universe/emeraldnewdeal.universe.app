@@ -1,6 +1,8 @@
 <Layout>
   <header class="section home__header">
-    <img src="{{this.header_image type=image}}" class="home__header-image">
+    {{#image this.header_image as |img|}}
+      <img src="{{img type=image}}" data-focus-x="{{img.focus.x}}"  data-focus-y="{{img.focus.y}}" class="home__header-image">
+    {{/image}}
     <section class="home__header-content">
       <h1 class="header__title">{{this.title required=true}}</h1>
       {{#if this.subtitle}}<h2 class="header__subtitle">{{this.subtitle}}</h2>{{/if}}
@@ -113,7 +115,9 @@
     <section class="section home__volunteer" id="volunteer">
       <h2 class="home__volunteer-header">{{this.volunteer_header}}</h2>
       <VolunteerForm />
-      <img src="{{this.volunteer_image type='image'}}" class="home__volunteer-image" />
+      {{#image this.volunteer_image as |img|}}
+        <img src="{{img.src}}" data-focus-x="{{img.focus.x}}" data-focus-y="{{img.focus.y}}" class="home__volunteer-image">
+      {{/image}}
     </section>
   {{/if}}
 

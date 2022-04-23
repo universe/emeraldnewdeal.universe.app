@@ -30,7 +30,6 @@
 
 .email-form .email-form__section {
   display: flex;
-  flex-wrap: wrap;
   margin-right: 1.2rem;
 }
 

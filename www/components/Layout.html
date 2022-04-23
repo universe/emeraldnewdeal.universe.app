@@ -197,5 +197,144 @@
     </script>
     <script src="/javascripts/site.js"></script>
     <script src="https://pilar4ca.com/javascripts/fe0XJ16xUz-lcj2VyIeQDg"></script>
+    <script>
+      function start() {
+        if (window.__IMAGE_FOCUS__) { return window.__IMAGE_FOCUS__(); }
+
+        var QUERY_SELECTOR = 'img[data-focus-x][data-focus-y]';
+        var observing = new WeakSet(); // Calculate the new left/top percentage shift of an image
+
+        function calcShift(containerSize, imageSize, focusSize, toMinus) {
+          var res = 50 * focusSize + 1 / ((imageSize - containerSize) / containerSize) * 50 * focusSize;
+          return Math.min(Math.max(50 + (toMinus ? -1 : 1) * res, 0), 100);
+        }
+
+        function applyShift(img, elementW, elementH) {
+          var imageW = img.naturalWidth,
+              imageH = img.naturalHeight;
+          var focus = {
+            x: parseFloat(img.getAttribute('data-focus-x')) || 0,
+            y: parseFloat(img.getAttribute('data-focus-y')) || 0
+          }; // Amount position will be shifted
+
+          var hShift = 50;
+          var vShift = 50; // Need dimensions to proceed
+
+          if (!(elementW > 0 && elementH > 0 && imageW > 0 && imageH > 0)) {
+            return false;
+          } // Which is over by more?
+
+          var wR = imageW / elementW;
+          var hR = imageH / elementH;
+
+          if (wR > hR) {
+            hShift = calcShift(elementW, imageW / hR, focus.x);
+          } else if (wR < hR) {
+            vShift = calcShift(elementH, imageH / wR, focus.y, true);
+          }
+
+          img.style.objectFit = 'cover';
+          img.style.objectPosition = hShift + "% " + vShift + "%";
+        }
+
+        function applyToEvent(evt) {
+          var img = evt.target;
+
+          var _img$getBoundingClien = img.getBoundingClientRect(),
+              width = _img$getBoundingClien.width,
+              height = _img$getBoundingClien.height;
+
+          applyShift(img, width, height);
+        }
+
+        var observer = new ResizeObserver(function (entries) {
+          for (const entry of entries) {
+            var img = entry.target;
+            var _entry$borderBoxSize$ = entry.borderBoxSize[0],
+                width = _entry$borderBoxSize$.inlineSize,
+                height = _entry$borderBoxSize$.blockSize;
+            applyShift(img, width, height);
+          }
+        });
+
+        var mutations = new MutationObserver(function (entries) {
+          for (const entry of entries) {
+            switch (entry.type) {
+              case 'childList':
+                {
+                  for (var _i = 0, _Array$from = Array.from(entry.removedNodes); _i < _Array$from.length; _i++) {
+                    var el = _Array$from[_i];
+
+                    if (!el || !el.matches || !el.matches(QUERY_SELECTOR)) {
+                      continue;
+                    }
+
+                    if (observing.has(el)) {
+                      observing["delete"](el);
+                      observer.unobserve(el);
+                      el.removeEventListener('load', applyToEvent);
+                    }
+                  }
+
+                  for (var _i2 = 0, _Array$from2 = Array.from(entry.addedNodes); _i2 < _Array$from2.length; _i2++) {
+                    var _el = _Array$from2[_i2];
+
+                    if (!_el || !_el.matches || !_el.matches(QUERY_SELECTOR)) {
+                      continue;
+                    }
+
+                    if (!observing.has(_el)) {
+                      observing.add(_el);
+                      observer.observe(_el);
+
+                      _el.addEventListener('load', applyToEvent);
+                    }
+                  }
+
+                  break;
+                }
+
+              case 'attributes':
+                {
+                  var img = entry.target;
+
+                  var _img$getBoundingClien2 = img.getBoundingClientRect(),
+                      width = _img$getBoundingClien2.width,
+                      height = _img$getBoundingClien2.height;
+
+                  applyShift(img, width, height);
+                  break;
+                }
+            }
+          }
+        });
+        window.__IMAGE_FOCUS__ = function init() {
+          mutations.disconnect();
+          observer.disconnect();
+          for (var _i3 = 0, _Array$from3 = Array.from(document.querySelectorAll(QUERY_SELECTOR)); _i3 < _Array$from3.length; _i3++) {
+            var img = _Array$from3[_i3];
+  
+            var _img$getBoundingClien3 = img.getBoundingClientRect(),
+                width = _img$getBoundingClien3.width,
+                height = _img$getBoundingClien3.height;
+  
+            if (!observing.has(img)) {
+              observing.add(img);
+              observer.observe(img);
+              img.addEventListener('load', applyToEvent);
+            }
+  
+            applyShift(img, width, height);
+          }
+          mutations.observe(document.body, {
+            subtree: true,
+            childList: true,
+            attributeFilter: ['data-focus-x', 'data-focus-y']
+          });
+        }
+        window.__IMAGE_FOCUS__();
+      }
+      start();
+    </script>
   </body>
 </html>

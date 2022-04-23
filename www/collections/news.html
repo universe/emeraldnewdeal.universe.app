@@ -10,9 +10,9 @@
       <h2 class="blog__subtitle">{{this.subtitle}}</h2>
     {{/if}}
     <time class="blog__timestamp">{{date @page.createdAt}}</time>
-    {{#if this.header_image}}
-      <img src="{{this.header_image type=image priority=1}}" class="blog__header-image">
-    {{/if}}
+    {{#image this.header_image priority=1 as |img|}}
+      <img src="{{img.src}}" data-focus-x="{{img.focus.x}}" data-focus-y="{{img.focus.y}}" class="blog__header-image">
+    {{/image}}
   </header>
 
   <article class="section wysiwyg wysiwyg--reader blog__body">
